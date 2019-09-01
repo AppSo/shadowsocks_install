@@ -14,15 +14,15 @@ RUN runDeps="\
 	"; \
 	set -ex \
 	&& apk add --no-cache --virtual .build-deps ${runDeps} \
-	&& wget -O /tmp/shadowsocksr-3.2.2.tar.gz https://github.com/shadowsocksrr/shadowsocksr/archive/3.2.2.tar.gz \
-	&& tar zxf /tmp/shadowsocksr-3.2.2.tar.gz -C /tmp \
-	&& mv /tmp/shadowsocksr-3.2.2/shadowsocks /usr/local/ \
-	&& rm -fr /tmp/shadowsocksr-3.2.2 \
-	&& rm -f /tmp/shadowsocksr-3.2.2.tar.gz
+	&& wget -O /tmp/shadowsocksr-3.1.2.tar.gz https://github.com/AppSo/shadowsocksr/archive/3.1.2.tar.gz \
+	&& tar zxf /tmp/shadowsocksr-3.1.2.tar.gz -C /tmp \
+	&& mv /tmp/shadowsocksr-3.1.2/shadowsocks /usr/local/ \
+	&& rm -fr /tmp/shadowsocksr-3.1.2 \
+	&& rm -f /tmp/shadowsocksr-3.1.2.tar.gz
 
-COPY ./config_sample.json /etc/shadowsocks-r/config.json
-VOLUME /etc/shadowsocks-r
+COPY ./config_sample.json /etc/shadowsocksr/config.json
+VOLUME /etc/shadowsocksr
 
 USER nobody
 
-CMD [ "/usr/local/shadowsocks/server.py", "-c", "/etc/shadowsocks-r/config.json" ]
+CMD [ "/usr/local/shadowsocks/server.py", "-c", "/etc/shadowsocksr/config.json" ]

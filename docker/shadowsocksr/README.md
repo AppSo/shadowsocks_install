@@ -35,7 +35,7 @@ You **must create a configuration file**  `/etc/shadowsocksr/config.json` in hos
 {
     "server":"0.0.0.0",
     "server_ipv6":"::",
-    "server_port":443,
+    "server_port":9000,
     "local_address":"127.0.0.1",
     "local_port":1080,
     "password":"password",
@@ -43,7 +43,7 @@ You **must create a configuration file**  `/etc/shadowsocksr/config.json` in hos
     "method":"none",
     "protocol":"auth_chain_b",
     "protocol_param":"",
-    "obfs":"tls1.2_ticket_auth",
+    "obfs":"http_simple",
     "obfs_param":"",
     "redirect":"",
     "dns_ipv6":false,
@@ -54,16 +54,16 @@ You **must create a configuration file**  `/etc/shadowsocksr/config.json` in hos
 
 This container with sample configuration `/etc/shadowsocksr/config.json`
 
-There is an example to start a container that listens on `443` (both TCP and UDP):
+There is an example to start a container that listens on `9000` (both TCP and UDP):
 
 ```bash
-$ docker run -d -p 443:443 -p 443:443/udp --name ssr -v /etc/shadowsocksr:/etc/shadowsocksr appso/shadowsocksr
+$ docker run -d -p 9000:9000 -p 9000:9000/udp --name ssr -v /etc/shadowsocksr:/etc/shadowsocksr appso/shadowsocksr
 ```
 
-There is an example to start a container based **alpine** that listens on `443` (both TCP and UDP):
+There is an example to start a container based **alpine** that listens on `9000` (both TCP and UDP):
 
 ```bash
-$ docker run -d -p 443:443 -p 443:443/udp --name ssr -v /etc/shadowsocksr:/etc/shadowsocksr appso/shadowsocksr:alpine
+$ docker run -d -p 9000:9000 -p 9000:9000/udp --name ssr -v /etc/shadowsocksr:/etc/shadowsocksr appso/shadowsocksr:alpine
 ```
 
 **Note**: The port number must be same as configuration.

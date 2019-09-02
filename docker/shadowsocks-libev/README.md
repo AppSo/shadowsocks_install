@@ -1,4 +1,4 @@
-## Shadowsocks-libev Docker Image by Teddysun
+## Shadowsocks-libev Docker Image
 
 [shadowsocks-libev][1] is a lightweight secured socks5 proxy for embedded devices and low end boxes.
 It is a port of [shadowsocks][2] created by @clowwindy maintained by @madeye and @linusyang.
@@ -13,13 +13,13 @@ If you need to install docker by yourself, follow the [official installation gui
 ## Pull the image
 
 ```bash
-$ docker pull teddysun/shadowsocks-libev
+$ docker pull appso/shadowsocks-libev
 ```
 
 or pull image based **alpine**
 
 ```bash
-$ docker pull teddysun/shadowsocks-libev:alpine
+$ docker pull appso/shadowsocks-libev:alpine
 ```
 
 This pulls the latest release of shadowsocks-libev.
@@ -33,8 +33,8 @@ You **must create a configuration file**  `/etc/shadowsocks-libev/config.json` i
 ```
 {
     "server":"0.0.0.0",
-    "server_port":9000,
-    "password":"password0",
+    "server_port":80,
+    "password":"password",
     "timeout":300,
     "method":"aes-256-gcm",
     "fast_open":true,
@@ -49,30 +49,30 @@ and if you want to enable **simple-obfs**, configuration file `/etc/shadowsocks-
 ```
 {
     "server":"0.0.0.0",
-    "server_port":9000,
-    "password":"password0",
+    "server_port":80,
+    "password":"password",
     "timeout":300,
     "method":"aes-256-gcm",
     "fast_open":true,
     "nameserver":"8.8.8.8",
     "mode":"tcp_and_udp",
     "plugin":"obfs-server",
-    "plugin_opts":"obfs=tls"
+    "plugin_opts":"obfs=http"
 }
 ```
 
 This container with sample configuration `/etc/shadowsocks-libev/config.json`
 
-There is an example to start a container that listens on `9000` (both TCP and UDP):
+There is an example to start a container that listens on `80` (both TCP and UDP):
 
 ```bash
-$ docker run -d -p 9000:9000 -p 9000:9000/udp --name ss-libev -v /etc/shadowsocks-libev:/etc/shadowsocks-libev teddysun/shadowsocks-libev
+$ docker run -d -p 80:80 -p 80:80/udp --name ss-libev -v /etc/shadowsocks-libev:/etc/shadowsocks-libev appso/shadowsocks-libev
 ```
 
-There is an example to start a container based **alpine** that listens on `9000` (both TCP and UDP):
+There is an example to start a container based **alpine** that listens on `80` (both TCP and UDP):
 
 ```bash
-$ docker run -d -p 9000:9000 -p 9000:9000/udp --name ss-libev -v /etc/shadowsocks-libev:/etc/shadowsocks-libev teddysun/shadowsocks-libev:alpine
+$ docker run -d -p 80:80 -p 80:80/udp --name ss-libev -v /etc/shadowsocks-libev:/etc/shadowsocks-libev appso/shadowsocks-libev:alpine
 ```
 
 **Note**: The port number must be same as configuration.
@@ -81,4 +81,4 @@ $ docker run -d -p 9000:9000 -p 9000:9000/udp --name ss-libev -v /etc/shadowsock
 [2]: https://shadowsocks.org/en/index.html
 [3]: https://docs.docker.com/
 [4]: https://docs.docker.com/install/
-[5]: https://hub.docker.com/r/teddysun/shadowsocks-libev/
+[5]: https://hub.docker.com/r/appso/shadowsocks-libev/

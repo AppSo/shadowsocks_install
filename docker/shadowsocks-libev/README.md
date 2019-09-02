@@ -33,11 +33,11 @@ You **must create a configuration file**  `/etc/shadowsocks-libev/config.json` i
 ```
 {
     "server":"0.0.0.0",
-    "server_port":80,
+    "server_port":9000,
     "password":"password",
     "timeout":300,
     "method":"aes-256-gcm",
-    "fast_open":true,
+    "fast_open":false,
     "nameserver":"8.8.8.8",
     "mode":"tcp_and_udp"
 }
@@ -49,11 +49,11 @@ and if you want to enable **simple-obfs**, configuration file `/etc/shadowsocks-
 ```
 {
     "server":"0.0.0.0",
-    "server_port":80,
+    "server_port":9000,
     "password":"password",
     "timeout":300,
     "method":"aes-256-gcm",
-    "fast_open":true,
+    "fast_open":false,
     "nameserver":"8.8.8.8",
     "mode":"tcp_and_udp",
     "plugin":"obfs-server",
@@ -63,16 +63,16 @@ and if you want to enable **simple-obfs**, configuration file `/etc/shadowsocks-
 
 This container with sample configuration `/etc/shadowsocks-libev/config.json`
 
-There is an example to start a container that listens on `80` (both TCP and UDP):
+There is an example to start a container that listens on `9000` (both TCP and UDP):
 
 ```bash
-$ docker run -d -p 80:80 -p 80:80/udp --name ss-libev -v /etc/shadowsocks-libev:/etc/shadowsocks-libev appso/shadowsocks-libev
+$ docker run -d -p 9000:9000 -p 9000:9000/udp --name ss-libev -v /etc/shadowsocks-libev:/etc/shadowsocks-libev appso/shadowsocks-libev
 ```
 
-There is an example to start a container based **alpine** that listens on `80` (both TCP and UDP):
+There is an example to start a container based **alpine** that listens on `9000` (both TCP and UDP):
 
 ```bash
-$ docker run -d -p 80:80 -p 80:80/udp --name ss-libev -v /etc/shadowsocks-libev:/etc/shadowsocks-libev appso/shadowsocks-libev:alpine
+$ docker run -d -p 9000:9000 -p 9000:9000/udp --name ss-libev -v /etc/shadowsocks-libev:/etc/shadowsocks-libev appso/shadowsocks-libev:alpine
 ```
 
 **Note**: The port number must be same as configuration.

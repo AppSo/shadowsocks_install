@@ -3,7 +3,7 @@
 # Reference URL: https://github.com/AppSo/shadowsocksr
 
 FROM debian:stretch
-LABEL maintainer="AppSo"
+LABEL maintainer="Teddysun <i@teddysun.com>"
 
 RUN set -ex \
 	&& apt-get update \
@@ -15,9 +15,9 @@ RUN set -ex \
 	&& rm -fr /tmp/shadowsocksr-3.2.2 \
 	&& rm -f /tmp/shadowsocksr-3.2.2.tar.gz
 
-COPY ./config_sample.json /etc/shadowsocksr/config.json
-VOLUME /etc/shadowsocksr
+COPY ./config_sample.json /etc/shadowsocks-r/config.json
+VOLUME /etc/shadowsocks-r
 
 USER nobody
 
-CMD [ "/usr/local/shadowsocks/server.py", "-c", "/etc/shadowsocksr/config.json" ]
+CMD [ "/usr/local/shadowsocks/server.py", "-c", "/etc/shadowsocks-r/config.json" ]

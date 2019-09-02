@@ -1,10 +1,10 @@
 # Dockerfile for shadowsocks-libev
-# Copyright (C) 2018 - 2019 Teddysun <i@teddysun.com>
+# Copyright (C) 2018 - 2019 AppSo
 # Reference URL:
 # https://github.com/shadowsocks/shadowsocks-libev
 
 FROM debian:stretch
-LABEL maintainer="Teddysun <i@teddysun.com>"
+LABEL maintainer="AppSo"
 
 RUN set -ex \
 	&& printf "deb http://deb.debian.org/debian sid main" > /etc/apt/sources.list.d/sid.list \

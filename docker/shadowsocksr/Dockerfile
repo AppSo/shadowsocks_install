@@ -1,7 +1,3 @@
-# Dockerfile for ShadowsocksR
-# Copyright (C) 2018 - 2019 AppSo
-# Reference URL: https://github.com/AppSo/shadowsocksr
-
 FROM debian:stretch
 LABEL maintainer="Teddysun <i@teddysun.com>"
 

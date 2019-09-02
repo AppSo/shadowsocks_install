@@ -1,5 +1,7 @@
 ![Shadowsocks](https://github.com/teddysun/shadowsocks_install/raw/master/shadowsocks.png)
 # Auto install Shadowsocks Server
+# Shadowsocks 一键安装脚本
+
 
 shadowsocks-all.sh
 ==================

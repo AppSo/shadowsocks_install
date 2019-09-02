@@ -1,19 +1,19 @@
 FROM debian:stretch
-LABEL maintainer="Teddysun <i@teddysun.com>"
+LABEL maintainer="AppSo"
 
 RUN set -ex \
 	&& apt-get update \
 	&& apt-get install -y wget python libsodium-dev openssl \
 	&& rm -rf /var/lib/apt/lists/* \
-	&& wget -O /tmp/shadowsocksr-3.2.2.tar.gz https://github.com/shadowsocksrr/shadowsocksr/archive/3.2.2.tar.gz \
-	&& tar zxf /tmp/shadowsocksr-3.2.2.tar.gz -C /tmp \
-	&& mv /tmp/shadowsocksr-3.2.2/shadowsocks /usr/local/ \
-	&& rm -fr /tmp/shadowsocksr-3.2.2 \
-	&& rm -f /tmp/shadowsocksr-3.2.2.tar.gz
+	&& wget -O /tmp/shadowsocksr-3.4.0.tar.gz https://github.com/AppSo/shadowsocksr/archive/3.4.0.tar.gz \
+	&& tar zxf /tmp/shadowsocksr-3.4.0.tar.gz -C /tmp \
+	&& mv /tmp/shadowsocksr-3.4.0/shadowsocks /usr/local/ \
+	&& rm -fr /tmp/shadowsocksr-3.4.0 \
+	&& rm -f /tmp/shadowsocksr-3.4.0.tar.gz
 
-COPY ./config_sample.json /etc/shadowsocks-r/config.json
-VOLUME /etc/shadowsocks-r
+COPY ./config_sample.json /etc/shadowsocksr/config.json
+VOLUME /etc/shadowsocksr
 
 USER nobody
 
-CMD [ "/usr/local/shadowsocks/server.py", "-c", "/etc/shadowsocks-r/config.json" ]
+CMD [ "/usr/local/shadowsocks/server.py", "-c", "/etc/shadowsocksr/config.json" ]
